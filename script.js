@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         updateNode(treeData);
+        printTree();
     }
 
     function addNode(parentId) {
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         findNodeAndAddChild(treeData);
         render();
+        printTree();
     }
 
     function removeNode(nodeId) {
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         findNodeAndRemoveChild(treeData, { children: [treeData] });
         render();
+        printTree();
     }
 
     function generateId() {
@@ -86,6 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function render() {
         treeContainer.innerHTML = '';
         renderTree(treeData, treeContainer);
+    }
+
+    function printTree() {
+        console.log(JSON.stringify(treeData, null, 2));
     }
 
     treeContainer.addEventListener('click', (event) => {
@@ -103,4 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     render();
+    printTree();
 });
